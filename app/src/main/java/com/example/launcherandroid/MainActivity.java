@@ -3,9 +3,15 @@ package com.example.launcherandroid;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.pm.ResolveInfo;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ScrollView;
+import android.widget.Scroller;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,6 +19,20 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        Intent mainIntent = new Intent(Intent.ACTION_MAIN, null);
+        mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
+        List<ResolveInfo> pkgAppsList = this.getPackageManager().queryIntentActivities( mainIntent, 0);
+
+        ScrollView vsiKnofi = findViewById(R.id.neki);
+
+       for(ResolveInfo res: pkgAppsList){
+            Log.e("ales", res.toString());
+           ImageView enKnof = new ImageView(getApplicationContext());
+
+           vsiKnofi.addView(enKnof);
+       }
 
         ImageView chrome = findViewById(R.id.chromeButton);
         chrome.setOnClickListener(new View.OnClickListener() {
@@ -22,18 +42,26 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        ImageView gmail = findViewById(R.id.gmailButton);
-        gmail.setOnClickListener(new View.OnClickListener() {
+        ImageView phone = findViewById(R.id.phoneButton);
+        phone.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent launchIntent = getPackageManager().getLaunchIntentForPackage("com.android.gmail");
+                Intent launchIntent = getPackageManager().getLaunchIntentForPackage("com.android.phone");
                 startActivity(launchIntent);
             }
         });
-
+        //calculator ni naložen na samem sistemu
         ImageView calculator = findViewById(R.id.calculatorButton);
         calculator.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent launchIntent = getPackageManager().getLaunchIntentForPackage("com.android.calculator");
+                startActivity(launchIntent);
+            }
+        });
+
+        ImageView gmail = findViewById(R.id.gmailButton);
+        gmail.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent launchIntent = getPackageManager().getLaunchIntentForPackage("com.google.android.gm");
                 startActivity(launchIntent);
             }
         });

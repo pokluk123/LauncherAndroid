@@ -6,13 +6,43 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+    <ImageView
+        android:id="@+id/gmailButton"
+        android:layout_width="89dp"
+        android:layout_height="95dp"
+        android:layout_marginBottom="8dp"
+        android:contentDescription="LogoGmail"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.724"
+        app:layout_constraintStart_toEndOf="@+id/calculatorButton"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.891"
+        app:srcCompat="@drawable/gmail" />
+
+    <ImageView
+        android:id="@+id/calculatorButton"
+        android:layout_width="95dp"
+        android:layout_height="97dp"
+        android:layout_marginBottom="72dp"
+        android:contentDescription="LogoCalculator"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/calulator" />
+
+    <ImageView
+        android:id="@+id/chromeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:layout_marginBottom="8dp"
+        android:contentDescription="LogoCalculator"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/calculatorButton"
+        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.891"
+        app:srcCompat="@drawable/chrome_logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

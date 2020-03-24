@@ -52,8 +52,6 @@ public class RAdapter extends RecyclerView.Adapter<RAdapter.ViewHolder> {
 
     public RAdapter(Context c) {
 
-        //This is where we build our list of app details, using the app
-        //object we created to store the label, package name and icon
 
         PackageManager pm = c.getPackageManager();
         appsList = new ArrayList<AppInfo>();
@@ -75,8 +73,6 @@ public class RAdapter extends RecyclerView.Adapter<RAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(RAdapter.ViewHolder viewHolder, int i) {
 
-        //Here we use the information in the list we created to define the views
-
         String appLabel = appsList.get(i).label.toString();
         String appPackage = appsList.get(i).packageName.toString();
         Drawable appIcon = appsList.get(i).icon;
@@ -91,9 +87,6 @@ public class RAdapter extends RecyclerView.Adapter<RAdapter.ViewHolder> {
     @Override
     public int getItemCount() {
 
-        //This method needs to be overridden so that Androids knows how many items
-        //will be making it into the list
-
         return appsList.size();
     }
 
@@ -101,7 +94,6 @@ public class RAdapter extends RecyclerView.Adapter<RAdapter.ViewHolder> {
     @Override
     public RAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        //This is what adds the code we've written in here to our target view
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
 
         View view = inflater.inflate(R.layout.row, parent, false);
@@ -109,4 +101,7 @@ public class RAdapter extends RecyclerView.Adapter<RAdapter.ViewHolder> {
         ViewHolder viewHolder = new ViewHolder(view);
         return viewHolder;
     }
+
+
+
 }

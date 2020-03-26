@@ -72,4 +72,12 @@
             android:orientation="vertical" />
     </ScrollView>
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go to scroll screen"
+        tools:layout_editor_absoluteX="233dp"
+        tools:layout_editor_absoluteY="427dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

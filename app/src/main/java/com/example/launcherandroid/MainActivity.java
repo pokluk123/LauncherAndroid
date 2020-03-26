@@ -7,6 +7,7 @@ import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.Scroller;
@@ -65,6 +66,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(launchIntent);
             }
         });
-
+        Button button=findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent launchIntent = new Intent(MainActivity.this,AppsDrawer.class);
+                startActivity(launchIntent);
+            }
+        });
     }
+
+
 }

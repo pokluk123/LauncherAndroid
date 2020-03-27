@@ -30,14 +30,14 @@ public class MainActivity extends AppCompatActivity {
         mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
         List<ResolveInfo> pkgAppsList = this.getPackageManager().queryIntentActivities( mainIntent, 0);
 
-        ScrollView vsiKnofi = findViewById(R.id.neki);
+       /* ScrollView vsiKnofi = findViewById(R.id.neki);
 
        for(ResolveInfo res: pkgAppsList){
             Log.e("ales", res.toString());
            ImageView enKnof = new ImageView(getApplicationContext());
 
            vsiKnofi.addView(enKnof);
-       }
+       }*/
 
         /*ImageView chromeIcon = (ImageView) findViewById(R.id.chromeButton);
         chromeIcon.setImageDrawable(this, getActivityIcon(,"com.android.chrome", "com.google.android.apps.chrome.Main"));

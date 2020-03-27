@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -14,22 +14,18 @@
         android:layout_marginEnd="2dp"
         android:layout_marginRight="2dp"
         android:text="Go to scroll screen"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/phoneButton"
-        app:layout_constraintTop_toBottomOf="@+id/neki" />
-        <!--app:srcCompat="@drawable/gmail"--> />
+         />
+        <!--app:srcCompat="@drawable/gmail"--><![CDATA[ />
 
-<ImageView
-    android:id="@+id/calculatorButton"
-    android:layout_width="95dp"
-    android:layout_height="97dp"
-    android:layout_marginBottom="72dp"
-    android:contentDescription="LogoCalculator"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"/>
-    <!--app:srcCompat="@drawable/calulator"-->
+]]><!--app:srcCompat="@drawable/calulator"-->
+
+    <ImageView
+        android:id="@+id/calculatorButton"
+        android:layout_width="95dp"
+        android:layout_height="97dp"
+        android:layout_marginBottom="72dp"
+        android:contentDescription="LogoCalculator"
+         />
 
     <ImageView
         android:id="@+id/chromeButton"
@@ -37,12 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:contentDescription="LogoCalculator"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/calculatorButton"
-        app:layout_constraintHorizontal_bias="0.529"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.891"/>
+        />
     <!--app:srcCompat="@drawable/chrome_logo"-->
 
     <ImageView
@@ -55,12 +46,6 @@
         android:layout_marginRight="108dp"
         android:layout_marginStart="37dp"
         android:contentDescription="LogoCalculator"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button"
-        app:layout_constraintHorizontal_bias="0.532"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.668"
         app:srcCompat="@android:drawable/stat_sys_phone_call" />
 
     <ImageView
@@ -69,13 +54,8 @@
         android:layout_height="95dp"
         android:layout_marginBottom="8dp"
         android:contentDescription="LogoGmail"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.724"
-        app:layout_constraintStart_toEndOf="@+id/calculatorButton"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.891"/>
-
+        />
+    <!--
     <ScrollView
         android:id="@+id/neki"
         android:layout_width="409dp"
@@ -89,7 +69,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" />
-    </ScrollView>
+    </ScrollView>-->
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

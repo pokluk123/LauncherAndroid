@@ -18,7 +18,7 @@ import java.util.List;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class RAdapter extends RecyclerView.Adapter<RAdapter.ViewHolder> {
-    private List<AppInfo> appsList;
+    public List<AppInfo> appsList;
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public TextView textView;
@@ -52,7 +52,8 @@ public class RAdapter extends RecyclerView.Adapter<RAdapter.ViewHolder> {
 
     public RAdapter(Context c) {
 
-
+        appsList = new ArrayList<>();
+        /*
         PackageManager pm = c.getPackageManager();
         appsList = new ArrayList<AppInfo>();
 
@@ -67,7 +68,7 @@ public class RAdapter extends RecyclerView.Adapter<RAdapter.ViewHolder> {
             app.icon = ri.activityInfo.loadIcon(pm);
             appsList.add(app);
         }
-
+        */
     }
 
     @Override

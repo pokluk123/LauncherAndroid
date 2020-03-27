@@ -84,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
     public static Drawable getActivityIcon(Context context, String packageName, String activityName) {
         PackageManager pm = context.getPackageManager();
         Intent intent = new Intent();

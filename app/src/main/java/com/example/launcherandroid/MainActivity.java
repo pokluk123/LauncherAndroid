@@ -1,11 +1,6 @@
 package com.example.launcherandroid;
 
-import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -24,22 +19,37 @@ public class MainActivity extends AppCompatActivity {
         mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
 
         ImageView chrome = findViewById(R.id.chromeImageView);
-        ImageView photo = findViewById(R.id.);
+        ImageView photo = findViewById(R.id.photoImageView);
+        ImageView dialer = findViewById(R.id.dialerImageView);
+        ImageView contacts = findViewById(R.id.contactsImageView);
+
+
 
         chrome.setOnClickListener(new View.OnClickListener() {
-                                      public void onClick(View v) {
-                                          Intent launchIntent = getPackageManager().getLaunchIntentForPackage("com.android.chrome");
-                                          startActivity(launchIntent);
-                                      }
-                                  });
-        photo.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent launchIntent = getPackageManager().getLaunchIntentForPackage("com.android.chrome");
                 startActivity(launchIntent);
             }
         });
+        photo.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent launchIntent = getPackageManager().getLaunchIntentForPackage("com.google.android.apps.photos");
+                startActivity(launchIntent);
+            }
+        });
+        dialer.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent launchIntent = getPackageManager().getLaunchIntentForPackage("com.android.dialer");
+                startActivity(launchIntent);
+            }
+        });
+        contacts.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent launchIntent = getPackageManager().getLaunchIntentForPackage("com.android.contacts");
+                startActivity(launchIntent);
+            }
+        });
 
-        /*List<ResolveInfo> pkgAppsList = this.getPackageManager().queryIntentActivities( mainIntent, 0);*/
 
        /* ScrollView vsiKnofi = findViewById(R.id.neki);
 
@@ -100,13 +110,5 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    public static Drawable getActivityIcon(Context context, String packageName, String activityName) {
-        PackageManager pm = context.getPackageManager();
-        Intent intent = new Intent();
-        intent.setComponent(new ComponentName(packageName, activityName));
-        ResolveInfo resolveInfo = pm.resolveActivity(intent, 0);
-
-        return resolveInfo.loadIcon(pm);
-    }
 
 }

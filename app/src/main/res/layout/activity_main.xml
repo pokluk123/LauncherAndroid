@@ -8,13 +8,13 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="wrap_content"
+        android:layout_width="85dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="256dp"
         android:layout_marginEnd="2dp"
         android:layout_marginRight="2dp"
-        android:text="Go to scroll screen"
-         />
+        android:layout_marginBottom="256dp"
+        android:text="Go to scroll screen" />
+
 
     <ImageView
         android:id="@+id/chromeImageView"
@@ -29,6 +29,20 @@
         android:layout_height="96dp"
         android:layout_weight="1"
         app:srcCompat="@android:drawable/btn_dialog" />
+
+    <ImageView
+        android:id="@+id/dialerImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="96dp"
+        android:layout_weight="1"
+        app:srcCompat="@android:drawable/btn_dialog" />
+
+    <ImageView
+        android:id="@+id/contactsImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="97dp"
+        android:layout_weight="1"
+        app:srcCompat="@android:drawable/btn_star_big_on" />
 
     <!--app:srcCompat="@drawable/gmail"-->
 <!--app:srcCompat="@drawable/calulator"-->

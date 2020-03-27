@@ -1,7 +1,5 @@
 package com.example.launcherandroid;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -9,12 +7,11 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ScrollView;
-import android.widget.Scroller;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.List;
 
@@ -28,13 +25,13 @@ public class MainActivity extends AppCompatActivity {
 
         Intent mainIntent = new Intent(Intent.ACTION_MAIN, null);
         mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
-        List<ResolveInfo> pkgAppsList = this.getPackageManager().queryIntentActivities( mainIntent, 0);
+        /*List<ResolveInfo> pkgAppsList = this.getPackageManager().queryIntentActivities( mainIntent, 0);*/
 
        /* ScrollView vsiKnofi = findViewById(R.id.neki);
 
        for(ResolveInfo res: pkgAppsList){
             Log.e("ales", res.toString());
-           ImageView enKnof = new ImageView(getApplicationContext());
+            ImageView enKnof = new ImageView(getApplicationContext());
 
            vsiKnofi.addView(enKnof);
        }*/
@@ -42,7 +39,9 @@ public class MainActivity extends AppCompatActivity {
         /*ImageView chromeIcon = (ImageView) findViewById(R.id.chromeButton);
         chromeIcon.setImageDrawable(this, getActivityIcon(,"com.android.chrome", "com.google.android.apps.chrome.Main"));
         */
-        ImageView chrome = findViewById(R.id.chromeButton);
+
+
+        /*ImageView chrome = findViewById(R.id.chromeButton);
         chrome.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent launchIntent = getPackageManager().getLaunchIntentForPackage("com.android.chrome");
@@ -80,7 +79,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(launchIntent);
             }
         });
-    }
+
+         */
+
 
 
 

@@ -19,41 +19,15 @@
 <!--app:srcCompat="@drawable/calulator"-->
 
     <ImageView
-        android:id="@+id/calculatorButton"
-        android:layout_width="95dp"
-        android:layout_height="97dp"
-        android:layout_marginBottom="72dp"
-        android:contentDescription="LogoCalculator"
-         />
-
-    <ImageView
         android:id="@+id/chromeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:contentDescription="LogoCalculator"
         />
+
     <!--app:srcCompat="@drawable/chrome_logo"-->
 
-    <ImageView
-        android:id="@+id/phoneButton"
-        android:layout_width="0dp"
-        android:layout_height="85dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="108dp"
-        android:layout_marginLeft="37dp"
-        android:layout_marginRight="108dp"
-        android:layout_marginStart="37dp"
-        android:contentDescription="LogoCalculator"
-        app:srcCompat="@android:drawable/stat_sys_phone_call" />
-
-    <ImageView
-        android:id="@+id/gmailButton"
-        android:layout_width="89dp"
-        android:layout_height="95dp"
-        android:layout_marginBottom="8dp"
-        android:contentDescription="LogoGmail"
-        />
     <!--
     <ScrollView
         android:id="@+id/neki"

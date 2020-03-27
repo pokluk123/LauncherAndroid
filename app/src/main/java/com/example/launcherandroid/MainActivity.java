@@ -26,7 +26,10 @@ public class MainActivity extends AppCompatActivity {
         Intent mainIntent = new Intent(Intent.ACTION_MAIN, null);
         mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
 
-        public void onChromeButtonClick(View v) {
+        ImageView chrome = findViewById(R.id.chromeButton);
+        chrome.setOnClickListener(new View.OnClickListener() {
+        public void onChromeButtonClick(View v){
+                                      }
             Intent launchIntent = getPackageManager().getLaunchIntentForPackage("com.android.chrome");
             startActivity(launchIntent);
         }
@@ -87,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         });
 */
 
-
+    }
 
 
 

@@ -17,11 +17,19 @@
          />
 
     <ImageView
-        android:id="@+id/chromeButton"
-        android:layout_width="wrap_content"
+        android:id="@+id/chromeImageView"
+        android:layout_width="57dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         app:srcCompat="@drawable/chrome_logo" />
+
+    <ImageView
+        android:id="@+id/photoImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="96dp"
+        android:layout_weight="1"
+        app:srcCompat="@android:drawable/btn_dialog" />
+
     <!--app:srcCompat="@drawable/gmail"-->
 <!--app:srcCompat="@drawable/calulator"-->
 

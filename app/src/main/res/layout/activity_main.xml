@@ -15,23 +15,15 @@
         android:layout_marginRight="2dp"
         android:text="Go to scroll screen"
          />
-        <!--app:srcCompat="@drawable/gmail"-->
-<!--app:srcCompat="@drawable/calulator"-->
 
     <ImageView
         android:id="@+id/chromeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:contentDescription="LogoCalculator"
-        />
-
-    <Button
-        android:id="@+id/onChromeButtonClick"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Button" />
+        app:srcCompat="@drawable/chrome_logo" />
+    <!--app:srcCompat="@drawable/gmail"-->
+<!--app:srcCompat="@drawable/calulator"-->
 
     <!--app:srcCompat="@drawable/chrome_logo"-->
 

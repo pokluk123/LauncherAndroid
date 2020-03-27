@@ -25,8 +25,6 @@ public class RAdapter extends RecyclerView.Adapter<RAdapter.ViewHolder> {
         public ImageView img;
 
 
-        //This is the subclass ViewHolder which simply
-        //'holds the views' for us to show on each row
         public ViewHolder(View itemView) {
             super(itemView);
 

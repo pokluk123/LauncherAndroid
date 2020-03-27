@@ -28,8 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
         ImageView chrome = findViewById(R.id.chromeButton);
         chrome.setOnClickListener(new View.OnClickListener() {
-        public void onChromeButtonClick(View v){
-                                      }
+        public void onClick(View v){
             Intent launchIntent = getPackageManager().getLaunchIntentForPackage("com.android.chrome");
             startActivity(launchIntent);
         }

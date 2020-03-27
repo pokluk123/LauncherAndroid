@@ -15,9 +15,8 @@
         android:layout_marginRight="2dp"
         android:text="Go to scroll screen"
          />
-        <!--app:srcCompat="@drawable/gmail"--><![CDATA[ />
-
-]]><!--app:srcCompat="@drawable/calulator"-->
+        <!--app:srcCompat="@drawable/gmail"-->
+<!--app:srcCompat="@drawable/calulator"-->
 
     <ImageView
         android:id="@+id/calculatorButton"

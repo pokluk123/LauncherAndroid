@@ -8,12 +8,9 @@ import android.content.pm.ResolveInfo;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,10 +25,11 @@ public class MainActivity extends AppCompatActivity {
 
         ImageView chrome = findViewById(R.id.chromeButton);
         chrome.setOnClickListener(new View.OnClickListener() {
-        public void onClick(View v){
-            Intent launchIntent = getPackageManager().getLaunchIntentForPackage("com.android.chrome");
-            startActivity(launchIntent);
-        }
+                                      public void onClick(View v) {
+                                          Intent launchIntent = getPackageManager().getLaunchIntentForPackage("com.android.chrome");
+                                          startActivity(launchIntent);
+                                      }
+                                  });
 
         /*List<ResolveInfo> pkgAppsList = this.getPackageManager().queryIntentActivities( mainIntent, 0);*/
 
@@ -90,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
 */
 
     }
+
 
 
 

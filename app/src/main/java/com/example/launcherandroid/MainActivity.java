@@ -25,6 +25,12 @@ public class MainActivity extends AppCompatActivity {
 
         Intent mainIntent = new Intent(Intent.ACTION_MAIN, null);
         mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
+
+        public void onChromeButtonClick(View v) {
+            Intent launchIntent = getPackageManager().getLaunchIntentForPackage("com.android.chrome");
+            startActivity(launchIntent);
+        }
+
         /*List<ResolveInfo> pkgAppsList = this.getPackageManager().queryIntentActivities( mainIntent, 0);*/
 
        /* ScrollView vsiKnofi = findViewById(R.id.neki);
@@ -79,8 +85,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(launchIntent);
             }
         });
-
-         */
+*/
 
 
 

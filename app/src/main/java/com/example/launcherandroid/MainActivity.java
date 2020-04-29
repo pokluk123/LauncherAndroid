@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(i);
                 }
             });
-
+//test
             novo.setImageDrawable(ikonica);
             ll.addView(novo);
         }

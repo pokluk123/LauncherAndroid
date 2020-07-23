@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
                 if (!response.isSuccessful()) {
                     Log.e("znidi", "error on receive IP weird code " + response.code());
                 } else {
+                    
                     String body = response.body().toString();//dobimo jedro sporočila
                     Document doc = Document.parse(body);//"parsamo" v JSON
                     Document mobilos = doc.get("mobilos", Document.class); //vzamemo ven mobilos JSON

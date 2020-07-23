@@ -15,8 +15,11 @@ import android.widget.LinearLayout;
 
 import com.squareup.okhttp.Call;
 import com.squareup.okhttp.Callback;
+import com.squareup.okhttp.Headers;
+import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
+import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
 
 import org.bson.Document;
@@ -25,25 +28,32 @@ import org.json.JSONObject;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-
-
+import java.util.Map;
 
 
 public class MainActivity extends AppCompatActivity {
 
+    public static final MediaType JSONMime = MediaType.parse("application/json; charset=utf-8");
+    private static Headers headers;
     private static String serverIp="";
     private static String serverPort="";
+    private static String username="andrej@demo1";
+    private static String userID;
+    private static String token;
+    private static List<Document> firmIDs;
+    private static List<Document> groupIDs;
     private static OkHttpClient client = new OkHttpClient();
+
+    public static AppCompatActivity dis;//ugly hackzz
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        String url="rask.cening.si/android.ip";
-
-
-
+        dis=this;//ugly hackzz part2
         Request request = new Request.Builder()
                 .url("https://www.rask.cening.si/android.ip")
                 .build();
@@ -59,52 +69,22 @@ public class MainActivity extends AppCompatActivity {
                 if (!response.isSuccessful()) {
                     Log.e("znidi", "error on receive IP weird code " + response.code());
                 } else {
-                    
-                    String body = response.body().toString();//dobimo jedro sporočila
+
+                    String body = response.body().string();//dobimo jedro sporočila
+                    Log.v("znidi", "response.body().toString(): "+body);
                     Document doc = Document.parse(body);//"parsamo" v JSON
                     Document mobilos = doc.get("mobilos", Document.class); //vzamemo ven mobilos JSON
-                    serverIp = mobilos.getString("ip");
+                    serverIp = mobilos.getString("serverip");
                     serverPort = mobilos.getString("port");
                     Log.i("znidi", "prejeli smo server ip in port: "+serverIp + ":"+serverPort);
+                    //DrawLaucher.redraw();//raje ne, ker tako ali tako še nismo prijavljeni
+                    login();
                 }
             }
         });
 
-        Intent mainIntent = new Intent(Intent.ACTION_MAIN, null);
-        mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
-        List<ResolveInfo> pkgAppsList = this.getPackageManager().queryIntentActivities( mainIntent, 0);
 
-        LinearLayout ll = findViewById(R.id.vseIkonce);
-        for(ResolveInfo info:pkgAppsList){
-            //RequestQueue
 
-            String packageName = info.resolvePackageName;
-            Drawable ikonica = null;
-            try {
-                ikonica = getApplicationContext().getPackageManager().getApplicationIcon(packageName);
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
-                Log.e("bp","catch"+e.getMessage());
-            }
-            Log.v(packageName,"dela");
-            ImageView novo = new ImageView(this);
-
-            final ActivityInfo activity = info.activityInfo;
-            novo.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    ComponentName name = new ComponentName(activity.applicationInfo.packageName, activity.name);
-                    Intent i = new Intent(Intent.ACTION_MAIN);
-                    i.addCategory(Intent.CATEGORY_LAUNCHER);
-                    i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
-                    i.setComponent(name);
-                    startActivity(i);
-                }
-            });
-//test
-            novo.setImageDrawable(ikonica);
-            ll.addView(novo);
-        }
     }
     private View.OnClickListener onChromeButtonClick = new View.OnClickListener() {
         @Override
@@ -131,6 +111,67 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public static OkHttpClient getHTTP(){
+        return client;
+    }
+
+    public static String getServerURL(){
+        return "http://"+serverIp+":"+serverPort+"/rest/";
+    }
+
+    public static String getUserID(){
+        return userID;
+    }
+
+    public static Headers getHeaders(){
+        if(headers==null){
+            login();
+            return Headers.of();
+        }
+        return headers;
+    }
+
+    private static void login(){
+
+        Document doc = new Document("username", username);
+        doc.append("password", "123admin");
+
+        Request request = new Request.Builder()
+                .url(getServerURL()+"user/auth/mobilos")
+                .post(RequestBody.create(JSONMime, doc.toJson()))
+                .build();
+
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Request request, IOException e) {
+                Log.e("znidi", "error on receive login token " + e.getMessage());
+            }
+
+            @Override
+            public void onResponse(Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    Log.e("znidi", "error on receive login token weird code " + response.code());
+                    if(response.code()==401){
+                        Log.e("znidi", "Handle wrong password error");
+                    }
+                } else {
+                    String body = response.body().string();//dobimo jedro sporočila
+                    Document doc = Document.parse(body);//"parsamo" v JSON
+                    token = doc.getString("token");
+                    userID = doc.getObjectId("_id").toString();
+                    firmIDs = doc.get("firmIDs", ArrayList.class);
+                    groupIDs = doc.get("groupIDs", ArrayList.class);
+                    Log.i("znidi", "prejeli smo token: "+token+" in id: "+userID);
+                    Map<String, String> headerMap = new HashMap<String, String>();
+                    headerMap.put("username", username);
+                    headerMap.put("token", token);
+                    headers = Headers.of(headerMap);//shranimo si headerje, ker so v seh requestih enaki
+
+                    DataService.requestDovoljene();
+                }
+            }
+        });
+    }
 }
 
 
